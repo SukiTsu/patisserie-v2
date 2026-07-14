@@ -1,0 +1,379 @@
+/* ============================================
+   Vitrine Page — Atelier Dharma
+   ============================================ */
+
+/* ---- Hero ---- */
+.vitrine-hero {
+  position: relative;
+  padding: 160px 0 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.vitrine-hero__bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--creme) 0%, #fff0e6 50%, #fef5f0 100%);
+  z-index: 0;
+}
+
+.vitrine-hero__bg::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to top, var(--blanc), transparent);
+}
+
+.vitrine-hero__content {
+  position: relative;
+  z-index: 1;
+}
+
+.vitrine-hero h1 {
+  color: var(--chocolat);
+  margin-bottom: 12px;
+}
+
+.vitrine-hero p {
+  color: var(--caramel);
+  font-size: 1.1rem;
+  font-style: italic;
+  font-family: var(--font-heading);
+  margin: 0 auto;
+}
+
+/* ---- Search ---- */
+.vitrine-search {
+  padding: 32px 24px 0;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 12px 20px;
+  background: var(--creme);
+  border: 2px solid transparent;
+  border-radius: var(--radius-xl);
+  transition: all var(--transition);
+}
+
+.search-bar:focus-within {
+  border-color: var(--framboise);
+  background: var(--blanc);
+  box-shadow: 0 0 0 4px rgba(216, 17, 89, 0.1);
+}
+
+.search-bar__icon {
+  width: 20px;
+  height: 20px;
+  color: var(--caramel);
+  flex-shrink: 0;
+}
+
+.search-bar__input {
+  flex: 1;
+  border: none;
+  background: none;
+  font-size: 1rem;
+  font-family: var(--font-body);
+  color: var(--chocolat);
+  outline: none;
+}
+
+.search-bar__input::placeholder {
+  color: var(--gris);
+}
+
+.search-bar__clear {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  color: var(--gris);
+  cursor: pointer;
+  padding: 4px;
+  transition: color var(--transition);
+}
+
+.search-bar__clear:hover {
+  color: var(--framboise);
+}
+
+/* ---- Category chips ---- */
+.vitrine-categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  padding: 32px 24px;
+}
+
+.cat-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 20px;
+  border: 2px solid var(--creme);
+  background: var(--blanc);
+  border-radius: var(--radius-xl);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--chocolat);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.cat-chip:hover {
+  border-color: var(--framboise);
+  color: var(--framboise);
+  transform: translateY(-2px);
+}
+
+.cat-chip--active {
+  background: var(--framboise);
+  color: var(--blanc);
+  border-color: var(--framboise);
+  box-shadow: 0 4px 12px rgba(216, 17, 89, 0.25);
+}
+
+.cat-chip--active:hover {
+  color: var(--blanc);
+  background: #e82d6e;
+}
+
+.cat-chip__count {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.cat-chip--active .cat-chip__count {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* ---- Grid ---- */
+.vitrine-grid {
+  padding: 0 24px 80px;
+}
+
+.cake-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+}
+
+.cake-card {
+  background: var(--blanc);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  border: 1px solid rgba(42, 8, 0, 0.05);
+  cursor: pointer;
+  transition: all var(--transition);
+  animation: fadeInUp 0.5s ease-out both;
+}
+
+.cake-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
+}
+
+.cake-card__img-wrapper {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--creme);
+}
+
+.cake-card__img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.cake-card:hover .cake-card__img-wrapper img {
+  transform: scale(1.08);
+}
+
+.cake-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(42, 8, 0, 0.5), transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 20px;
+  opacity: 0;
+  transition: opacity var(--transition);
+}
+
+.cake-card:hover .cake-card__overlay {
+  opacity: 1;
+}
+
+.cake-card__overlay span {
+  color: var(--blanc);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding: 8px 20px;
+  background: rgba(216, 17, 89, 0.85);
+  border-radius: var(--radius-xl);
+}
+
+.cake-card__body {
+  padding: 18px 20px 20px;
+}
+
+.cake-card__title {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--chocolat);
+  margin-bottom: 10px;
+  line-height: 1.3;
+}
+
+.cake-card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.cake-card__tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--creme);
+  color: var(--caramel);
+  font-size: 0.78rem;
+  font-weight: 600;
+  border-radius: var(--radius-xl);
+  transition: all var(--transition);
+}
+
+.cake-card__tag:hover {
+  background: var(--framboise);
+  color: var(--blanc);
+}
+
+/* ---- Empty state ---- */
+.vitrine-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--gris);
+  font-size: 1.1rem;
+}
+
+/* ---- Modal ---- */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(42, 8, 0, 0.6);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal {
+  position: relative;
+  background: var(--blanc);
+  border-radius: var(--radius-lg);
+  max-width: 700px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: var(--shadow-xl);
+  animation: fadeInUp 0.4s ease;
+}
+
+.modal__close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 10;
+  width: 36px;
+  height: 36px;
+  border: none;
+  background: var(--blanc);
+  border-radius: 50%;
+  font-size: 1.1rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: all var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal__close:hover {
+  background: var(--framboise);
+  color: var(--blanc);
+}
+
+.modal__image {
+  width: 100%;
+  max-height: 400px;
+  overflow: hidden;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.modal__image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.modal__body {
+  padding: 28px 32px 32px;
+}
+
+.modal__body h2 {
+  font-family: var(--font-heading);
+  color: var(--chocolat);
+  margin-bottom: 12px;
+}
+
+.modal__desc {
+  color: #5a4a3e;
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.modal__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 600px) {
+  .vitrine-hero {
+    padding: 120px 0 60px;
+  }
+
+  .cake-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal {
+    margin: 12px;
+  }
+}
