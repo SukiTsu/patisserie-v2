@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
-import './NotFound.css';
+import './Error.css';
 
 export default function NotFound() {
   return (
