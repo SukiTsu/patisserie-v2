@@ -4,6 +4,7 @@ import Vitrine from './pages/Vitrine';
 import Ateliers from './pages/Ateliers';
 import Contact from './pages/Contact';
 import ScrollToTop from './components/ScrollToTop';
+import NotFound from './pages/Error';
 
 export default function App() {
   return (
@@ -14,6 +15,7 @@ export default function App() {
         <Route path="/vitrine" element={<Vitrine />} />
         <Route path="/ateliers" element={<Ateliers />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
