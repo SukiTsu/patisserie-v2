@@ -21,7 +21,8 @@ export default function Footer() {
             {/* Brand */}
             <div className="footer__col">
               <h3 className="footer__brand">
-                ✦ Atelier <em>Dharma</em>
+                <img className="footer__logo" src="/logo_rond.png" alt="" />
+                <span>Atelier <em>Dharma</em></span>
               </h3>
               <p className="footer__tagline">
                 Pâtisseries artisanales réalisées avec amour et des ingrédients naturels.
@@ -49,14 +50,14 @@ export default function Footer() {
             <div className="footer__col">
               <h4>Suivez-moi</h4>
               <a
-                href="https://www.facebook.com/atelierdharma"
+                href="https://www.facebook.com/share/1BgxCrZGKa/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Facebook
               </a>
               <a
-                href="https://www.instagram.com/atelierdharma"
+                href="https://www.instagram.com/atelier_dharma?igsh=d3BmcXM2czNlbmk2"
                 target="_blank"
                 rel="noopener noreferrer"
               >

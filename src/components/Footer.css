@@ -32,10 +32,20 @@
 }
 
 .footer__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   font-family: var(--font-heading);
   font-size: 1.4rem;
   color: var(--dore);
   margin-bottom: 12px;
+}
+
+.footer__logo {
+  width: 46px;
+  height: 46px;
+  flex: 0 0 46px;
+  object-fit: contain;
 }
 
 .footer__brand em {

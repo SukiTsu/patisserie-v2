@@ -1,9 +1,11 @@
 import { useEffect, useState, useMemo } from 'react';
+import DOMPurify from 'dompurify';
 import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import { manager } from '../utils/CategoryManager';
 import { Cake } from '../utils/Cake';
 import './Vitrine.css';
+import DATA from '../dataVitrine';
 
 export default function Vitrine() {
   const [loaded, setLoaded] = useState(false);
@@ -27,11 +29,7 @@ export default function Vitrine() {
     if (!loaded) return [];
 
     let cakes: Cake[];
-    if (selectedCategory) {
-      cakes = manager.getCakesByCategory(selectedCategory);
-    } else {
-      cakes = manager.listCake;
-    }
+    cakes = DATA;
 
     if (searchQuery.trim()) {
       const q = searchQuery.toLowerCase();
@@ -168,7 +166,17 @@ export default function Vitrine() {
             </div>
             <div className="modal__body">
               <h2>{modalCake.title}</h2>
-              {modalCake.content && <p className="modal__desc">{modalCake.content}</p>}
+              {modalCake.content && (
+                <div
+                  className="modal__desc"
+                  dangerouslySetInnerHTML={{
+                    __html: DOMPurify.sanitize(modalCake.content, {
+                      ALLOWED_TAGS: ['p', 'strong', 'em', 'br', 'ul', 'ol', 'li'],
+                      ALLOWED_ATTR: [],
+                    }),
+                  }}
+                />
+              )}
               {modalCake.categories.length > 0 && (
                 <div className="modal__tags">
                   {modalCake.categories.map(cat => (

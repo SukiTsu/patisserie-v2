@@ -120,6 +120,11 @@
   transform: translateY(-7.5px) rotate(-45deg);
 }
 
+.navbar__logo {
+  width: 42px;
+  height: 42px;
+}
+
 /* ---- Mobile ---- */
 @media (max-width: 768px) {
   .navbar__burger {
